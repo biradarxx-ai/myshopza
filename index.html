@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyShop - Labour Panel</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4CAF50">
+</head>
+<body>
+  <div class="container">
+    <h1>🛒 MyShop</h1>
+
+    <!-- Login Screen -->
+    <div id="login-screen">
+      <h2>🔐 Labour Panel</h2>
+      <input type="password" id="password" placeholder="Password Daalo" class="input">
+      <button onclick="login()" class="big-btn">Login</button>
+      <p id="login-msg" style="color:red; margin-top:10px;"></p>
+    </div>
+
+    <!-- Main App -->
+    <div id="main-app" class="hidden">
+      <div class="tabs">
+        <button onclick="showTab(0)" class="tab-btn active">🏠 Dashboard</button>
+        <button onclick="showTab(1)" class="tab-btn">🚪 Shop</button>
+        <button onclick="showTab(2)" class="tab-btn">📦 Products</button>
+        <button onclick="showTab(3)" class="tab-btn">💰 Sales</button>
+        <button onclick="showTab(4)" class="tab-btn">📜 History</button>
+      </div>
+
+      <!-- Dashboard -->
+      <div id="tab-0" class="tab-content">
+        <h2>Dashboard</h2>
+        <div class="stats">
+          <div class="stat-card"><h3 id="today-sales">₹0</h3><p>Aaj ki Sales</p></div>
+          <div class="stat-card"><h3 id="total-sales">₹0</h3><p>Kul Sales</p></div>
+          <div class="stat-card"><h3 id="shop-status">Closed</h3><p>Status</p></div>
+        </div>
+      </div>
+
+      <!-- Shop Panel -->
+      <div id="tab-1" class="tab-content hidden">
+        <h2>Labour Panel</h2>
+        <button onclick="toggleShop()" id="shop-btn" class="big-btn">🚪 SHOP OPEN</button>
+        <div id="status"></div>
+      </div>
+
+      <!-- Products -->
+      <div id="tab-2" class="tab-content hidden">
+        <h2>📦 Products</h2>
+        <input type="text" id="prod-name" placeholder="Product Naam" class="input">
+        <input type="number" id="prod-price" placeholder="Price (₹)" class="input">
+        <button onclick="addProduct()" class="btn">Add Product</button>
+        <div id="product-list"></div>
+      </div>
+
+      <!-- Sales -->
+      <div id="tab-3" class="tab-content hidden">
+        <h2>💰 Sales Entry</h2>
+        <select id="sale-product" class="input"></select>
+        <input type="number" id="sale-qty" placeholder="Quantity" class="input" value="1">
+        <button onclick="recordSale()" class="big-btn">✅ Sale Record Karo</button>
+        <div id="sale-status"></div>
+      </div>
+
+      <!-- History -->
+      <div id="tab-4" class="tab-content hidden">
+        <h2>📜 History</h2>
+        <div id="history-list"></div>
+      </div>
+
+      <button onclick="logout()" class="btn logout">🚪 Logout</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
